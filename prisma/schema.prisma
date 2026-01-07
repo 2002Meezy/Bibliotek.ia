@@ -1,0 +1,40 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../backend/sql_app.db"
+}
+
+model User {
+  id              Int      @id @default(autoincrement())
+  name            String
+  email           String   @unique
+  hashed_password String
+  role            String   @default("user") // "user" or "admin"
+  lastAnalysis    String?  // JSON string storing the last analysis result
+  books           Book[]
+  
+  @@map("users")
+}
+
+model Book {
+  id              Int      @id @default(autoincrement())
+  title           String
+  author          String
+  genre           String?
+  thumbnail       String?
+  description     String?
+  rating          Int      @default(0)
+  status          String   @default("unread") // "unread", "reading", "read"
+  publicationYear String?
+  userId          Int
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+
+  @@map("books")
+}
