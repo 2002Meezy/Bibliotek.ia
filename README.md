@@ -1,5 +1,7 @@
 # 📚 Bibliotek.IA
 
+![Bibliotek.IA Logo](assets/bibliotek-logo.jpg)
+
 > **O seu curador literário pessoal movido por Inteligência Artificial.**
 
 O **Bibliotek.IA** é uma aplicação web inovadora que utiliza Visão Computacional e LLMs (Large Language Models) para analisar fotos da sua estante de livros real e fornecer recomendações personalizadas, insights e gestão de leitura.
