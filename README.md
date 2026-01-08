@@ -1,15 +1,29 @@
-#  Bibliotek.IA
+# 📚 Bibliotek.IA – Seu curador pessoal de livros com Inteligência Artificial
 
 ![Bibliotek.IA Logo](assets/bibliotek-logo.jpg)
 
 > **O seu curador literário pessoal movido por Inteligência Artificial.**
 
+## 🧠 Visão Geral
+
+Bibliotek.IA é uma aplicação web de IA multimodal que permite identificar livros a partir de imagens de estantes, livrarias ou páginas web e gerar resumos e recomendações personalizadas com base nos interesses do usuário. O sistema combina Visão Computacional, NLP e arquitetura full‑stack, com foco em uso real, privacidade e tomada de decisão baseada em dados.
+
+### 📸 Experiência do Usuário
+
+- **Upload de foto da estante** – a IA identifica os livros presentes na imagem.
+- **Resumos e recomendações** – são retornados títulos, autores, sinopses e sugestões de novos livros.
+- **Filtros por gênero** – o usuário pode refinar as recomendações de acordo com suas preferências.
+- **Biblioteca pessoal** – gerenciamento de livros lidos, lendo e desejados.
+
 ## 🎞️ Demo
 
-![Painel Admin](assets/painel-admin.gif)
-
+### Login & Autenticação
 ![Login](assets/login.gif)
 
+### Painel Administrativo
+![Painel Admin](assets/painel-admin.gif)
+
+### Fluxo Principal (Upload e Recomendações)
 ![Main Flow](assets/main.gif)
 
 ![Cruzando Vibe](assets/cruzando-vibe.gif)
