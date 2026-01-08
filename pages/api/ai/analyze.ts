@@ -7,6 +7,7 @@ export const config = {
         },
     },
 };
+const BACKEND_URL = 'http://127.0.0.1:8000';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     // Set CORS headers
@@ -22,12 +23,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'POST') {
         try {
             // Forward the request to the Python backend
-            const response = await fetch('http://127.0.0.1:8000/analyze', {
+            const response = await fetch(`${BACKEND_URL}/analyze`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(req.body),
+                body: JSON.stringify({
+                    image: req.body.image,
+                    genres: req.body.genres,
+                    feelingLucky: req.body.feelingLucky
+                }),
             });
 
             if (!response.ok) {

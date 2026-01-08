@@ -4,7 +4,8 @@ const API_BASE_URL = 'http://localhost:3001/api/ai';
 
 export const analyzeBookshelf = async (
   base64Image: string,
-  selectedGenres: string[]
+  selectedGenres: string[],
+  feelingLucky: boolean = false
 ): Promise<RecommendationResponse> => {
   try {
     console.log("[GeminiService] Sending request to Python Backend...");
@@ -17,6 +18,7 @@ export const analyzeBookshelf = async (
       body: JSON.stringify({
         image: base64Image,
         genres: selectedGenres,
+        feelingLucky,
       }),
     });
 

@@ -231,7 +231,7 @@ const RecommendationList: React.FC<RecommendationListProps> = ({
                               : 'bg-[#171717] text-white hover:bg-black'
                               }`}
                           >
-                            {saved ? 'Lendo Agora' : 'Marcar como Lendo'}
+                            {saved ? 'Lendo Agora' : 'Adicionar à biblioteca'}
                           </button>
 
                           <button

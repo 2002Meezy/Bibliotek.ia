@@ -1,7 +1,0 @@
-{
-  "name": "Bibliotek.IA - AI Book Recommender",
-  "description": "Snap a photo of your bookshelf and get personalized recommendations based on your collection and favorite genres using Gemini AI.",
-  "requestFramePermissions": [
-    "camera"
-  ]
-}

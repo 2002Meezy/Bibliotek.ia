@@ -117,11 +117,7 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onStart }) => {
           }}
         >
           <header className="space-y-4 animate-slide-up">
-            <div className="flex justify-center">
-              <span className="px-3 py-1 rounded-full border border-stone-200 bg-white/60 backdrop-blur-sm text-[9px] font-black uppercase tracking-[0.3em] text-stone-400">
-                Bibliotek.IA • Concierge Literário
-              </span>
-            </div>
+
 
             <h1 className="text-5xl md:text-[6.5rem] font-serif font-bold text-stone-900 leading-[0.9] tracking-tighter">
               Descubra sua <br />

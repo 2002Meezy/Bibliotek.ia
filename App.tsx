@@ -23,6 +23,7 @@ interface UserProfile {
 const App: React.FC = () => {
   const [view, setView] = useState<'intro' | 'home' | 'library' | 'about' | 'login' | 'profile' | 'admin'>('intro');
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [feelingLucky, setFeelingLucky] = useState(false);
   const [imageData, setImageData] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<RecommendationResponse | null>(null);
@@ -185,7 +186,7 @@ const App: React.FC = () => {
     }
   };
 
-  const generateRecommendations = async () => {
+  const generateRecommendations = useCallback(async () => {
     // Verificação de autenticação obrigatória para usar a IA
     if (!user) {
       setIsAuthRequiredOpen(true);
@@ -204,7 +205,7 @@ const App: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await analyzeBookshelf(imageData, selectedGenres);
+      const data = await analyzeBookshelf(imageData, selectedGenres, feelingLucky);
       setResult(data);
       if (user) {
         // Save to DB
@@ -215,11 +216,11 @@ const App: React.FC = () => {
         }).catch(err => console.error("Failed to save analysis", err));
       }
     } catch (err: any) {
-      setError(err?.message || "Erro desconhecido ao analisar imagem.");
+      setError(err.message || "Erro ao analisar estante. Tente novamente.");
     } finally {
       setLoading(false);
     }
-  };
+  }, [imageData, selectedGenres, feelingLucky, user]);
 
   const handleLoginSuccess = (userData: UserProfile) => {
     setUser(userData);
@@ -478,25 +479,51 @@ const App: React.FC = () => {
               </p>
 
               <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-stone-100">
-                <div className="mb-8">
+                <div className="mb-8 flex flex-col md:flex-row gap-4">
                   <button
                     onClick={() => setIsGenreModalOpen(true)}
-                    className="w-full group flex items-center justify-between p-6 bg-stone-50 border border-stone-200 rounded-2xl hover:border-amber-300 transition-all hover:bg-amber-50/30"
+                    className="flex-1 group flex items-center justify-between p-6 bg-stone-50 border border-stone-200 rounded-2xl hover:border-amber-300 transition-all hover:bg-amber-50/30 text-left"
                   >
-                    <div className="text-left">
+                    <div>
                       <h3 className="text-lg font-bold text-stone-800 mb-1">Quais gêneros você mais gosta?</h3>
                       <p className="text-stone-500 text-sm">
                         {selectedGenres.length > 0
-                          ? `${selectedGenres.length} gêneros selecionados: ${selectedGenres.slice(0, 3).join(', ')}${selectedGenres.length > 3 ? '...' : ''}`
-                          : 'Selecione seus favoritos para recomendações precisas'}
+                          ? `${selectedGenres.length} gêneros selecionados`
+                          : 'Selecione seus favoritos'}
                       </p>
                     </div>
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-stone-100 flex items-center justify-center text-amber-700 group-hover:scale-110 transition-transform">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                    <div className="w-10 h-10 bg-white rounded-xl shadow-sm border border-stone-100 flex items-center justify-center text-amber-700 group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                       </svg>
                     </div>
                   </button>
+
+                  <div className={`relative flex items-center justify-between p-6 border rounded-2xl transition-all w-full md:w-auto min-w-[200px] cursor-pointer ${feelingLucky ? 'bg-amber-50 border-amber-300' : 'bg-stone-50 border-stone-200'}`}
+                    onClick={() => setFeelingLucky(!feelingLucky)}>
+                    <div className="absolute -top-2 -right-2 z-10">
+                      <div className="group relative">
+                        <div className="w-5 h-5 bg-stone-200 rounded-full flex items-center justify-center text-stone-500 text-xs font-bold cursor-help border border-stone-300">
+                          ?
+                        </div>
+                        <div className="absolute bottom-full right-0 mb-2 w-48 p-3 bg-stone-800 text-white text-[10px] rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-xl pointer-events-none">
+                          <p className="mb-1"><span className="text-amber-400 font-bold">OFF:</span> A IA sugere apenas livros que estão na sua foto.</p>
+                          <p><span className="text-amber-400 font-bold">ON:</span> A IA usa sua estante como inspiração para sugerir livros novos (externos).</p>
+                          <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-stone-800"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className={`text-sm font-bold mb-1 ${feelingLucky ? 'text-amber-800' : 'text-stone-600'}`}>Descoberta</h3>
+                      <p className="text-[10px] text-stone-400 uppercase tracking-wider font-bold">
+                        {feelingLucky ? 'ON (Recomendar Novos)' : 'OFF (Apenas Estante)'}
+                      </p>
+                    </div>
+                    <div className={`w-12 h-7 rounded-full p-1 transition-colors duration-300 ease-in-out relative ${feelingLucky ? 'bg-amber-500' : 'bg-stone-300'}`}>
+                      <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${feelingLucky ? 'translate-x-5' : 'translate-x-0'}`}></div>
+                    </div>
+                  </div>
                 </div>
 
                 <ImageUploader
@@ -584,7 +611,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="w-full py-12 text-center text-stone-400 text-[10px] tracking-[0.3em] uppercase font-bold border-t border-stone-100 bg-white/50">
-        <p>© 2024 Bibliotek.IA • Criado por Luiz Santiago • Inteligência Literária Pessoal</p>
+        <p>© 2024 Bibliotek.IA</p>
       </footer>
 
       <style>{`

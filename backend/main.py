@@ -19,7 +19,8 @@ app.add_middleware(
 
 class AnalyzeRequest(BaseModel):
     image: str
-    genres: List[str]
+    genres: List[str] = []
+    feelingLucky: bool = False
 
 class CompareRequest(BaseModel):
     bookA: dict
@@ -27,8 +28,9 @@ class CompareRequest(BaseModel):
 
 # --- Existing Endpoints ---
 @app.post("/analyze")
-async def analyze_bookshelf_endpoint(request: AnalyzeRequest):
-    result = await agent.analyze_bookshelf(request.image, request.genres)
+async def analyze_endpoint(request: AnalyzeRequest):
+    # Map pydantic model field (feelingLucky) to function argument (feeling_lucky)
+    result = await agent.analyze_bookshelf(request.image, request.genres, request.feelingLucky)
     return result
 
 @app.post("/compare")
