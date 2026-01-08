@@ -1,4 +1,4 @@
-# 📚 Bibliotek.IA
+#  Bibliotek.IA
 
 ![Bibliotek.IA Logo](assets/bibliotek-logo.jpg)
 
@@ -8,7 +8,7 @@ O **Bibliotek.IA** é uma aplicação web inovadora que utiliza Visão Computaci
 
 ---
 
-## ✨ Funcionalidades Principais
+## Funcionalidades Principais
 
 -   📷 **Análise Visual de Estante**: Tire uma foto dos seus livros e a IA identificará automaticamente os títulos e autores.
 -   🔍 **Recomendações Inteligentes**:
@@ -20,7 +20,7 @@ O **Bibliotek.IA** é uma aplicação web inovadora que utiliza Visão Computaci
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 Este projeto foi construído com uma stack moderna e robusta:
 
@@ -46,7 +46,7 @@ Este projeto foi construído com uma stack moderna e robusta:
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
 Siga este guia passo a passo para rodar o Bibliotek.IA na sua máquina.
 
@@ -143,7 +143,7 @@ python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ---
 
-## 🎮 Como Usar
+##  Como Usar
 
 1.  Acesse `http://localhost:3000` no seu navegador.
 2.  Crie uma conta em "Entrar ou Criar Conta" > "Registre-se".
@@ -155,7 +155,7 @@ python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ---
 
-## 🆘 Solução de Problemas Comuns
+##  Solução de Problemas Comuns
 
 -   **Erro "Connection Refused" na análise**:
     -   Verifique se o *backend Python* está rodando no terminal 2.
