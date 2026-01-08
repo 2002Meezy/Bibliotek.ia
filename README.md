@@ -15,18 +15,31 @@ Bibliotek.IA é uma aplicação web de IA multimodal que permite identificar liv
 - **Filtros por gênero** – o usuário pode refinar as recomendações de acordo com suas preferências.
 - **Biblioteca pessoal** – gerenciamento de livros lidos, lendo e desejados.
 
-## 🎞️ Demo
+## 🎞️ Demo & Experiência do Usuário
 
-### Login & Autenticação
+### 1. Login & Autenticação
 ![Login](assets/login.gif)
+> **UX**: O usuário inicia sua jornada acessando o sistema de forma segura. A interface limpa e responsiva permite login rápido ou criação de nova conta, garantindo que cada usuário tenha seu próprio espaço personalizado e histórico salvo.
 
-### Painel Administrativo
+### 2. Painel Administrativo
 ![Painel Admin](assets/painel-admin.gif)
+> **UX**: Administradores têm visão total do sistema. O dashboard apresenta métricas claras de crescimento, gestão de usuários e controle de acesso, permitindo monitorar a saúde da plataforma com gráficos intuitivos e ações rápidas.
 
-### Fluxo Principal (Upload e Recomendações)
+### 3. Biblioteca Pessoal
+![Biblioteca](assets/biblioteca.gif)
+> **UX**: A "casa" digital do leitor. Aqui ele organiza seus livros em prateleiras virtuais (Lidos, Lendo, Quero Ler). A interface visual baseada em capas facilita a navegação, e os filtros por status ajudam a manter a leitura em dia e organizada.
+
+### 4. Fluxo de Identificação (Modo Estrito)
 ![Main Flow](assets/main.gif)
+> **UX**: A mágica acontece aqui. O usuário envia uma foto da estante real e, em segundos, a IA "vê" os livros. No **Modo Estrito**, o sistema age como um organizador pessoal, identificando exatamente o que você tem e sugerindo, dentre eles, o que ler a seguir com base no seu humor ou meta atual.
 
+### 5. Modo "Estou Sentindo Sorte" (Descoberta)
+![Descobrir](assets/descobrir.gif)
+> **UX**: Para quando você quer novidade. Ao ativar este modo, a IA analisa o que você já tem apenas para *excluir* esses títulos e, cruzar seu gosto literário com um vasto conhecimento de mundo para sugerir **livros inéditos**. É como ter um livreiro que conhece sua estante inteira e diz: "Se você gostou desses, vai amar este aqui que você ainda não tem".
+
+### 6. Cruzamento de Vibes
 ![Cruzando Vibe](assets/cruzando-vibe.gif)
+> **UX**: Uma ferramenta de curiosidade. O usuário seleciona dois livros aparentemente distintos e desafia a IA a encontrar a conexão temática entre eles. O resultado é um insight criativo que revela pontes ocultas entre narrativas, enriquecendo a percepção literária do usuário.
 
 O **Bibliotek.IA** é uma aplicação web inovadora que utiliza Visão Computacional e LLMs (Large Language Models) para analisar fotos da sua estante de livros real e fornecer recomendações personalizadas, insights e gestão de leitura.
 

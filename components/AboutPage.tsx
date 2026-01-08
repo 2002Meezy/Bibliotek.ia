@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
               </blockquote>
             </div>
             <p className="text-stone-500 leading-relaxed">
-              O projeto nasceu da vontade de aplicar Inteligência Artificial de ponta (Gemini AI) para resolver um problema romântico: decidir qual universo habitar na próxima noite de leitura. Através do Bibliotek.IA, Luiz une visão computacional e curadoria inteligente para transformar qualquer biblioteca em uma experiência personalizada.
+              O projeto nasceu da vontade de aplicar Inteligência Artificial para resolver um problema romântico: decidir qual universo habitar na próxima noite de leitura. Através do Bibliotek.IA, Luiz une visão computacional e curadoria inteligente para transformar qualquer biblioteca em uma experiência personalizada.
             </p>
           </div>
 
