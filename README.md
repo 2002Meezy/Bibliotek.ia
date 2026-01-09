@@ -12,7 +12,7 @@
 
 ---
 
-## 📋 Tabela de Conteúdos
+##  Tabela de Conteúdos
 
 - [Visão Geral](#-visão-geral)
 - [Funcionalidades e UX](#-demo--experiência-do-usuário)
@@ -25,7 +25,7 @@
 
 ---
 
-## 🧠 Visão Geral
+##  Visão Geral
 
 **Bibliotek.IA** é uma aplicação web multimodal que revoluciona a forma como interagimos com nossas estantes. Ao unir **Visão Computacional** e **Large Language Models (LLMs)**, o sistema identifica instantaneamente os livros que você possui e age como um livreiro experiente, sugerindo novas leituras que complementam sua coleção ou descobrindo universos inteiramente novos.
 
@@ -61,7 +61,7 @@ O projeto foca em privacidade (rodando modelos localmente), personalização e u
 
 ---
 
-## 🔬 Como funciona: O Pipeline Técnico
+##  Como funciona: O Pipeline Técnico
 
 Para quem gosta de saber o que acontece "debaixo do capô", o Bibliotek.IA utiliza um pipeline modular sofisticado:
 
@@ -77,7 +77,7 @@ Para quem gosta de saber o que acontece "debaixo do capô", o Bibliotek.IA utili
 
 ---
 
-## 💻 Exemplo de Uso
+##  Exemplo de Uso
 
 Para entender o output do sistema sem precisar rodar:
 
@@ -129,7 +129,7 @@ Este projeto foi construído com uma stack moderna e robusta:
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
 Siga este guia passo a passo para rodar o Bibliotek.IA na sua máquina.
 
@@ -166,7 +166,7 @@ python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ---
 
-## 📊 Roadmap / Próximos Passos
+##  Roadmap / Próximos Passos
 
 - [ ] **Integração com Goodreads**: Importar bibliotecas existentes.
 - [ ] **App Mobile**: Versão React Native para facilitar tirar fotos.
@@ -175,7 +175,7 @@ python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ---
 
-## 🤝 Contribuindo
+##  Contribuindo
 
 Contribuições são bem-vindas! Se você tem uma ideia para melhorar o algoritmo de recomendação ou a UI:
 
@@ -188,5 +188,5 @@ Contribuições são bem-vindas! Se você tem uma ideia para melhorar o algoritm
 ---
 
 **Autor**: Luiz Santiago (Estudante de IA Aplicada)
-*Criado com ❤️ e muito código.*
+
     
